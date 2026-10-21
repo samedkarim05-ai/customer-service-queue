@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Service Queue System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-mark">Q</div>
+    <div>
+      <p class="eyebrow">QUEUE MANAGEMENT</p>
+      <h1>Customer Service Queue System</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">FIFO · FIRST IN, FIRST OUT</p>
+        <h2>Keep service moving.</h2>
+        <p class="intro-copy">Add customers, view the waiting line, and serve the next person in order.</p>
+      </div>
+      <div class="fifo-pill"><span class="pulse"></span> Queue is active</div>
+    </section>
+
+    <section class="stats-grid" aria-label="Queue summary">
+      <article class="stat-card">
+        <p>Customers waiting</p>
+        <strong id="waitingCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <p>Next to be served</p>
+        <strong class="next-name" id="nextCustomer">—</strong>
+      </article>
+      <article class="stat-card">
+        <p>Customers served</p>
+        <strong id="servedCount">0</strong>
+      </article>
+    </section>
+
+    <section class="panel add-panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">NEW ARRIVAL</p>
+          <h2>Add a customer</h2>
+        </div>
+      </div>
+      <form id="customerForm" class="add-form">
+        <label class="sr-only" for="customerName">Customer name</label>
+        <input id="customerName" name="customerName" type="text" maxlength="60"
+               placeholder="Enter customer's name" autocomplete="off" required>
+        <button type="submit" class="primary-button">+ Add to queue</button>
+      </form>
+      <p class="hint">New customers join the back of the queue.</p>
+    </section>
+
+    <section class="panel queue-panel">
+      <div class="section-heading queue-heading">
+        <div>
+          <p class="eyebrow">WAITING LINE</p>
+          <h2>Current queue <span class="count-badge" id="queueBadge">0</span></h2>
+        </div>
+        <button id="serveButton" class="primary-button" type="button">Serve next customer →</button>
+      </div>
+      <div id="notice" class="notice" role="status" aria-live="polite">No customers are waiting. Add a customer to begin.</div>
+      <ol id="queueList" class="queue-list"></ol>
+      <div class="queue-footer">
+        <span>Order is based on arrival time.</span>
+        <button id="clearButton" class="text-button" type="button">Clear waiting queue</button>
+      </div>
+    </section>
+
+    <section class="principle-card">
+      <div class="principle-icon">FIFO</div>
+      <div>
+        <h3>How the queue works</h3>
+        <p><strong>First In, First Out:</strong> the first customer added is the first customer served. This demonstrates the queue data structure using enqueue and dequeue operations.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Student project · Queue data structure demonstration</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
